@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  laravel:
+    image: "laravel-dev:${IMG_VERSION}"
+    build:
+      context: ./php
+      args:
+        PHP_VERSION: ${PHP_VERSION}
+    environment:
+      XDEBUG_VERSION: 2.9.0
+    volumes:
+      - ./application:/srv/www/app
+
+  nginx:
+    image: "nginx-dev:${IMG_VERSION}"
+    build: ./nginx
+    environment:
+      FAST_CGI_HOST: laravel
+    volumes:
+      - ./application:/srv/www/app
