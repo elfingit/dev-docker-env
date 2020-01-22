@@ -19,3 +19,10 @@ services:
       FAST_CGI_HOST: laravel
     volumes:
       - ./application:/srv/www/app
+
+  posgres:
+    image: "postgres-dev:${IMG_VERSION}"
+    build:
+      context: ./postgres
+      args:
+        PG_VERSION: ${PG_VERSION}
