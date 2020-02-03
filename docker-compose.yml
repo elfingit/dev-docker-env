@@ -26,3 +26,10 @@ services:
       context: ./postgres
       args:
         PG_VERSION: ${PG_VERSION}
+
+  mysql:
+    image: "mysql-dev:${IMG_VERSION}"
+    build:
+      context: ./mysql
+      args:
+        MYSQL_VERSION: ${MYSQL_VERSION}
