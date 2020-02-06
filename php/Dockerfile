@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y wget git unzip libpq-dev zlib1g-dev lib
   && docker-php-ext-enable zip \
   && docker-php-ext-install pdo \
   && docker-php-ext-install pdo_pgsql \
+  && docker-php-ext-install pdo_mysql \
   && pecl install redis \
   && docker-php-ext-enable redis
 
